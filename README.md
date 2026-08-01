@@ -1,13 +1,12 @@
-# 🚀 RVG Gateway – codebox
+# 🚀 m5g Gateway – irnet
 
 دروازه (Gateway) سریع و مدرن برای تونل‌زنی VLESS روی WebSocket + HTTP Proxy، با داشبورد مدیریتی زیبا و قابلیت ساخت لینک‌های اختصاصی با محدودیت ترافیک.
 
-لینک ویدیو اموزش
-https://youtu.be/nTq2vDmC0Ks
+لینک ویدیو اموزش به زودی در چنل تلگرام
 
 کانال تلگرام
 
-https://t.me/CodeBoxo
+https://t.me/irnet_fa
 
 ---
 
@@ -28,7 +27,7 @@ https://t.me/CodeBoxo
 ابتدا روی دکمه **Fork** کلیک کنید تا این ریپازیتوری را به حساب خود منتقل کنید:
 
 ```bash
-https://github.com/arvin341az-glitch/RVG/
+https://github.com/dcvvgy32w21/RVG/
 ```
 
 ---
@@ -61,14 +60,12 @@ https://github.com/arvin341az-glitch/RVG/
 
 ---
 
-<p align="center">ساخته‌شده با ❤️ توسط <b>codebox</b></p>
+<p align="center">ساخته‌شده با ❤️ توسط <b>irnet</b></p>
 
 ---
 
 ## 💰 حمایت مالی (Donate)
 
-اگر این پروژه به شما کمک کرد و خواستید از توسعه‌دهنده حمایت کنید:
-
-https://wallets.arvin341az.workers.dev
+اگر این پروژه به شما کمک کرد و خواستید از توسعه‌دهنده حمایت کنید:تو چنل استار بدید
 
 🙏 از حمایت شما متشکریم!
