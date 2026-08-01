@@ -1,11 +1,11 @@
-# pages.py  -  RVG Gateway v9.2
+# pages.py  -  m5g Gateway v9.2
 # شامل: LOGIN_HTML, DASHBOARD_HTML, get_public_page_html()
 
 LOGIN_HTML = r"""<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ورود · RVG Gateway</title>
+<title>ورود · m5g Gateway</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
@@ -77,7 +77,7 @@ input:focus+.ic{color:var(--accent)}
       </div>
       <button class="btn" type="submit" id="btn"><i class="ti ti-login-2"></i> ورود به داشبورد</button>
     </form>
-    <div class="footer">کانال رسمی<a href="https://t.me/CodeBoxo" target="_blank"><i class="ti ti-brand-telegram"></i>@CodeBoxo</a></div>
+    <div class="footer">کانال رسمی<a href="https://t.me/irnet_fa" target="_blank"><i class="ti ti-brand-telegram"></i>@irnet_fa</a></div>
   </div>
 </div>
 <script>
@@ -103,7 +103,7 @@ DASHBOARD_HTML = r"""<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RVG Gateway · codebox</title>
+<title> m5g Gateway · irnet</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
@@ -864,11 +864,11 @@ a{color:inherit;text-decoration:none}
     <div class="modal-v2-body">
       <div class="cl amber" style="margin-top:0">
         <i class="ti ti-alert-triangle"></i>
-        <span>به تازگی فردی اقدام به کپی‌برداری غیرمجاز از سورس‌کد این پروژه نموده و آن را تحت عنوان «X4G» بازنشر کرده است این اقدام، نقض آشکار حقوق مالکیت معنوی (کپی‌رایت) پروژه‌ی RVG Gateway محسوب می‌شود</span>
+        <span>به تازگی فردی اقدام به کپی‌برداری غیرمجاز از سورس‌کد این پروژه نموده و آن را تحت عنوان «X4G» بازنشر کرده است این اقدام، نقض آشکار حقوق مالکیت معنوی (کپی‌رایت) پروژه‌ی m5g Gateway محسوب می‌شود</span>
       </div>
       <div class="cl" style="margin-top:10px">
         <i class="ti ti-info-circle"></i>
-        <span>از کاربران و همکاران محترم درخواست می‌شود از استفاده، انتشار یا معرفی نسخه‌ی کپی‌شده با نام «X4G» خودداری نموده و صرفاً از منبع رسمی و اصلی این پروژه — RVG Gateway · codebox — بهره‌مند شوند. هرگونه استفاده از نسخه‌ی مذکور، حقوق قانونی صاحب اثر را نقض می‌کند و پیگرد آن محفوظ است.</span>
+        <span>از کاربران و همکاران محترم درخواست می‌شود از استفاده، انتشار یا معرفی نسخه‌ی کپی‌شده با نام «X4G» خودداری نموده و صرفاً از منبع رسمی و اصلی این پروژه — m5g Gateway · irnet — بهره‌مند شوند. هرگونه استفاده از نسخه‌ی مذکور، حقوق قانونی صاحب اثر را نقض می‌کند و پیگرد آن محفوظ است.</span>
       </div>
       <div class="modal-v2-footer">
         <button class="btn btn-p" style="flex:1;justify-content:center" onclick="closeModal('modal-copyright-notice')"><i class="ti ti-check"></i> متوجه شدم</button>
@@ -1050,8 +1050,8 @@ a{color:inherit;text-decoration:none}
     </div>
   </div>
   <div class="dash-footer">
-    <span class="df-text">codebox RVG Gateway v9.2 · Railway · 2025</span>
-    <a class="df-link" href="https://t.me/CodeBoxo" target="_blank"><i class="ti ti-brand-telegram"></i> t.me/CodeBoxo</a>
+    <span class="df-text">irnet m5g Gateway v9.2 · Railway · 2026</span>
+    <a class="df-link" href="https://t.me/irnet_fa" target="_blank"><i class="ti ti-brand-telegram"></i> t.me/irnet_fa</a>
   </div>
 </section>
 <section class="pg" id="pg-links">
@@ -1071,7 +1071,7 @@ a{color:inherit;text-decoration:none}
       <div class="cp-row">
         <div class="cp-block">
           <div class="cp-block-label"><i class="ti ti-id-badge-2"></i> شناسه کانفیگ</div>
-          <input class="cp-input-full" id="nl-label" placeholder="مثلاً: کاربر علی">
+          <input class="cp-input-full" id="nl-label" placeholder="مثلاً: کاربر m5g">
           <div class="cp-mini-row">
             <input class="cp-input-full" id="nl-note" placeholder="یادداشت (اختیاری)">
           </div>
@@ -1103,6 +1103,7 @@ a{color:inherit;text-decoration:none}
           <span class="chip" onclick="setQuota(5,'GB',this)">۵ GB</span>
           <span class="chip" onclick="setQuota(10,'GB',this)">۱۰ GB</span>
           <span class="chip" onclick="setQuota(50,'GB',this)">۵۰ GB</span>
+           <span class="chip" onclick="setQuota(1000,'GB',this)">1 ترابایت</span>
         </div>
       </div>
       <div class="cp-block mb16">
@@ -1383,7 +1384,7 @@ a{color:inherit;text-decoration:none}
     <div class="sup-head">
       <div class="sup-head-icon"><i class="ti ti-headset"></i></div>
       <div class="sup-head-text">
-        <div class="sup-head-title">پشتیبانی RVG</div>
+        <div class="sup-head-title">پشتیبانی m5g</div>
         <div class="sup-head-sub"><span class="sdot"></span> معمولاً در کمتر از چند ساعت پاسخ داده می‌شود</div>
       </div>
     </div>
@@ -1456,13 +1457,13 @@ a{color:inherit;text-decoration:none}
 </section>
 </main>
 <script>
-let isDark=localStorage.getItem('rvg-theme')!=='light';
+let isDark=localStorage.getItem('m5g-theme')!=='light';
 let updateAvailable = false;
 let updateVersion = '';
 let updateDescription = '';
 
 function dismissUpdate() {
-  sessionStorage.setItem('rvg-update-dismissed', 'true');
+  sessionStorage.setItem('m5g-update-dismissed', 'true');
   closeModal('modal-update');
 }
 
@@ -2583,13 +2584,13 @@ html,body{{min-height:100%;background:var(--bg);font-family:var(--serif);color:v
     </div>
     <div class="top-actions">
       <button class="icon-btn" id="theme-toggle" onclick="toggleTheme()" title="تغییر تم"><i class="ti ti-sun" id="theme-icon"></i></button>
-      <a class="icon-btn" href="https://t.me/CodeBoxo" target="_blank" title="کانال تلگرام"><i class="ti ti-brand-telegram"></i></a>
+      <a class="icon-btn" href="https://t.me/irnet_fa" target="_blank" title="کانال تلگرام"><i class="ti ti-brand-telegram"></i></a>
     </div>
   </div>
   <div id="root">
     <div class="empty-state"><i class="ti ti-loader-2" style="animation:spin 1s linear infinite"></i>در حال بارگذاری...</div>
   </div>
-  <div class="footer">کانال رسمی: <a href="https://t.me/CodeBoxo" target="_blank">@CodeBoxo</a> · RVG Gateway v9.2</div>
+  <div class="footer">کانال رسمی: <a href="https://t.me/CodeBoxo" target="_blank">@irnet_fa</a> · m5g Gateway v9.2</div>
 </div>
 <script>
 const UUID_KEY='{uuid_key}';
@@ -2705,7 +2706,7 @@ function renderContent(d){{
           <i class="ti ti-copy"></i> کپی لینک ساب
         </button>
         <button class="btn btn-g" style="padding:7px 12px;font-size:10.5px"
-          onclick="showQR(window._rvgSubName + ' — کل گروه', window._rvgSubUrl)">
+          onclick="showQR(window._m5gSubName + ' — کل گروه', window._rvgSubUrl)">
           <i class="ti ti-qrcode"></i> QR کل
         </button>
       </div>
