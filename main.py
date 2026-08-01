@@ -37,8 +37,8 @@ app.add_middleware(
 
 # ── Persistence ───────────────────────────────────────────────────────────────
 DATA_DIR = Path(os.environ.get("DATA_DIR", "/data"))
-DATA_FILE = DATA_DIR / "rvg_state.json"
-SECRET_FILE = DATA_DIR / ".rvg_secret"
+DATA_FILE = DATA_DIR / "m5g_state.json"
+SECRET_FILE = DATA_DIR / ".m5g_secret"
 SAVE_LOCK = asyncio.Lock()
 
 
