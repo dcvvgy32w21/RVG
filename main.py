@@ -250,7 +250,6 @@ def uptime() -> str:
 
 def parse_size_to_bytes(value: float, unit: str) -> int:
     unit = unit.upper()
-     if unit == "TB": return int(value * 1024 ** 3)
     if unit == "GB": return int(value * 1024 ** 3)
     if unit == "MB": return int(value * 1024 ** 2)
     if unit == "KB": return int(value * 1024)
