@@ -69,7 +69,7 @@ def _get_or_create_secret() -> str:
 
 
 CONFIG = {
-    "port": int(os.environ.get("PORT",8000)),
+    "port": int(os.environ.get("PORT", 8080)),
     "secret": _get_or_create_secret(),
     "host": os.environ.get("RAILWAY_PUBLIC_DOMAIN", "localhost"),
 }
