@@ -25,7 +25,7 @@ logger = logging.getLogger("m5g-Gateway")
 
 IRAN_TZ = ZoneInfo("Asia/Tehran")
 
-app = FastAPI(title="RVG Gateway - codebox", docs_url=None, redoc_url=None)
+app = FastAPI(title="m5g Gateway - codebox", docs_url=None, redoc_url=None)
 
 app.add_middleware(
     CORSMiddleware,
