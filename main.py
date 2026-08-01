@@ -21,7 +21,7 @@ import httpx
 import logging
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
-logger = logging.getLogger("RVG-Gateway")
+logger = logging.getLogger("m5g-Gateway")
 
 IRAN_TZ = ZoneInfo("Asia/Tehran")
 
@@ -141,13 +141,13 @@ def log_activity(kind: str, message: str, level: str = "info"):
 asyncio.create_task(central.heartbeat_loop())
 
 # ── Auth ──────────────────────────────────────────────────────────────────────
-SESSION_COOKIE = "rvg_session"
+SESSION_COOKIE = "m5g_session"
 SESSION_TTL = 60 * 60 * 24 * 7
 
 def hash_password(pw: str) -> str:
     return hashlib.sha256(f"{pw}{CONFIG['secret']}".encode()).hexdigest()
 
-AUTH = {"password_hash": hash_password(os.environ.get("ADMIN_PASSWORD", "123456"))}
+AUTH = {"password_hash": hash_password(os.environ.get("ADMIN_PASSWORD", "m5g-gateway"))}
 SESSIONS: dict = {}
 SESSIONS_LOCK = asyncio.Lock()
 
@@ -192,7 +192,7 @@ async def startup():
     )
     await load_state()
     log_activity("system", "سرور راه‌اندازی شد", "ok")
-    logger.info(f"RVG Gateway v9.2 started on port {CONFIG['port']}")
+    logger.info(f"m5g Gateway v9.2 started on port {CONFIG['port']}")
 
 @app.on_event("shutdown")
 async def shutdown():
@@ -211,7 +211,7 @@ def generate_uuid() -> str:
 def now_ir() -> datetime:
     return datetime.now(IRAN_TZ)
 
-def generate_vless_link(uuid: str, host: str, remark: str = "RVG", protocol: str = DEFAULT_PROTOCOL) -> str:
+def generate_vless_link(uuid: str, host: str, remark: str = "m5g", protocol: str = DEFAULT_PROTOCOL) -> str:
     """می‌سازد VLESS share-link متناسب با پروتکل انتخاب‌شده (WS کلاسیک یا یکی از مدهای XHTTP)."""
     if protocol == "vless-ws":
         path = f"/ws/{uuid}"
@@ -250,6 +250,7 @@ def uptime() -> str:
 
 def parse_size_to_bytes(value: float, unit: str) -> int:
     unit = unit.upper()
+     if unit == "TB": return int(value * 1024 ** 3)
     if unit == "GB": return int(value * 1024 ** 3)
     if unit == "MB": return int(value * 1024 ** 2)
     if unit == "KB": return int(value * 1024)
@@ -322,7 +323,7 @@ async def ensure_default_link():
 # ── Basic endpoints ───────────────────────────────────────────────────────────
 @app.get("/")
 async def root():
-    return {"service": "RVG Gateway", "version": "9.2", "status": "active", "channel": "https://t.me/CodeBoxo"}
+    return {"service": "m5g Gateway", "version": "9.2", "status": "active", "channel": "https://t.me/irnet_fa"}
 
 @app.get("/health")
 async def health():
@@ -338,18 +339,17 @@ async def subscription_single(uuid: str):
         raise HTTPException(status_code=404, detail="not found or inactive")
     host = get_host()
     proto = link.get("protocol", DEFAULT_PROTOCOL)
-    vless = generate_vless_link(uuid, host, remark=f"RVG-{link['label']}", protocol=proto)
+    vless = generate_vless_link(uuid, host, remark=f"m5g panel-{link['label']}", protocol=proto)
     content = base64.b64encode(vless.encode()).decode()
     return Response(content=content, media_type="text/plain",
-                    headers={"profile-title": quote(link["label"]), "support-url": "https://t.me/CodeBoxo"})
-
+                    headers={"profile-title": quote(link["label"]), "support-url": "https://t.me/irnet_fa"})
 @app.get("/sub-all")
 async def subscription_all(_=Depends(require_auth)):
     import base64
     host = get_host()
     async with LINKS_LOCK:
         lines = [
-            generate_vless_link(uid, host, remark=f"RVG-{d['label']}", protocol=d.get("protocol", DEFAULT_PROTOCOL))
+            generate_vless_link(uid, host, remark=f"m5g panel-{d['label']}", protocol=d.get("protocol", DEFAULT_PROTOCOL))
             for uid, d in LINKS.items()
             if is_link_allowed(d)
         ]
@@ -363,7 +363,7 @@ async def subscription_all(_=Depends(require_auth)):
 @app.post("/api/subs")
 async def create_sub(request: Request, _=Depends(require_auth)):
     body = await request.json()
-    name = (body.get("name") or "گروه جدید").strip()[:60]
+    name = (body.get("name") or "ساخت گروه جدید").strip()[:60]
     desc = (body.get("desc") or "").strip()[:200]
     password = (body.get("password") or "").strip()
     sub_id = generate_uuid()
@@ -677,7 +677,7 @@ async def create_link(request: Request, _=Depends(require_auth)):
         "uuid": uid,
         **LINKS[uid],
         "expired": False,
-        "vless_link": generate_vless_link(uid, host, remark=f"RVG-{label}", protocol=protocol),
+        "vless_link": generate_vless_link(uid, host, remark=f"m5g panel-{label}", protocol=protocol),
         "sub_url": f"https://{host}/sub/{uid}",
     }
 
