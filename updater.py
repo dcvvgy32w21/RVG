@@ -15,7 +15,7 @@ import httpx
 # نیاز (مثلاً بعد از ست‌کردن دامنه‌ی اختصاصی روی Worker) می‌توانید با متغیر
 # محیطی UPDATE_MANIFEST_URL آن را override کنید.
 UPDATE_MANIFEST_URL = os.environ.get(
-    "UPDATE_MANIFEST_URL", "https://rvg-update.arvin341az.workers.dev/version.json"
+    "UPDATE_MANIFEST_URL", "https://m5g-update.arvin341az.workers.dev/version.json"
 )
 
 APP_DIR = Path(os.environ.get("APP_DIR", os.getcwd()))
